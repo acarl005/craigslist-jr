@@ -1,4 +1,8 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  erb :welcome
+end
+
+get '/categories/:name' do
+  @name = params[:name]
+  erb(:"articles/splash")
 end
