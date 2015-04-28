@@ -3,6 +3,9 @@ get '/' do
 end
 
 get '/categories/:name' do
-  @name = params[:name]
-  erb(:"articles/splash")
+  category = Category.where(name: params[:name] ).first
+  if category
+    @articles = Article.where(category_id: category.id)
+    erb(:"articles/splash")
+  end
 end
