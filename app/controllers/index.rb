@@ -1,5 +1,4 @@
 get '/' do
-
   erb(:welcome)
 end
 
@@ -9,15 +8,14 @@ get '/new' do
 end
 
 post '/articles' do
-  @new_art = Article.new(
+  @article = Article.new(
     title: params[:title],
-    img_url: params[:img_url],
     img_url: params[:img_url],
     body: params[:body],
     contact: params[:contact],
     category_id: params[:category],
   )
-  if @new_art.save
+  if @article.save
     redirect(:"/articles/received/#{params[:category]}")
   else
     erb(:"articles/new")
@@ -32,6 +30,31 @@ end
 get '/articles/:id' do
   @article = Article.find(params[:id])
   erb(:"articles/display")
+end
+
+get '/articles/:id/edit' do
+  @article = Article.find(params[:id])
+  erb(:"articles/edit")
+end
+
+put '/articles/:id' do
+  @article = Article.find(params[:id])
+  @article[:title] = params[:title]
+  @article[:img_url] = params[:img_url]
+  @article[:body] = params[:body]
+  @article[:contact] = params[:contact]
+  if @article.save
+    redirect(:"/articles/received/#{@article.category.id}")
+  else
+    erb(:"articles/edit")
+  end
+end
+
+delete '/articles/:id' do
+  @article = Article.find(params[:id])
+  @category = @article.category.name
+  @article.destroy
+  erb(:"articles/deleted")
 end
 
 get '/categories/:name' do

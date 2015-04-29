@@ -2,6 +2,14 @@
   max-width: 500px;
 }
 
+.err {
+  color: red;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .see-all {
   position: absolute;
   bottom: 10px;
@@ -119,6 +127,7 @@
     text-align: right;
     display: block;
     margin-top: 60px;
+    word-wrap: break-word;
 }
 
 .box-icon {

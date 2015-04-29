@@ -1,8 +1,9 @@
 <div class="container">
-  <form class="form-horizontal" action="/articles" method="post">
+  <form class="form-horizontal" action="/articles/<%= @article.id %>" method="post">
   <fieldset>
+  <input type="hidden" name="_method" value="put">
 
-  <legend>New Article</legend>
+  <legend>Edit Article</legend>
 
   <div class="form-group">
     <label class="col-md-4 control-label" for="title">Title</label>
@@ -51,19 +52,6 @@
   </div>
 
   <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic">Category</label>
-    <div class="col-md-4">
-      <select id="selectbasic" name="category" class="form-control" >
-        <option value="1">Free/For Sale</option>
-        <option value="2">Personal</option>
-        <option value="3">Housing</option>
-        <option value="4">Jobs</option>
-        <option value="5">Community</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-group">
     <div class="col-md-4">
       <input type="submit" class="btn btn-primary" name="make article">
     </div>
@@ -77,5 +65,10 @@
     <li><%= err %></li>
   <% end %>
   </ul>
+
+  <form method="post" action="/articles/<%= @article.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-danger" value="Delete Article">
+  </form>
 
 </div>
