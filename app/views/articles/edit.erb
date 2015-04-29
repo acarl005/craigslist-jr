@@ -1,0 +1,74 @@
+<div class="container">
+  <form class="form-horizontal" action="/articles/<%= @article.id %>" method="post">
+  <fieldset>
+  <input type="hidden" name="_method" value="put">
+
+  <legend>Edit Article</legend>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="title">Title</label>
+    <div class="col-md-4">
+    <input id="title" name="title" type="text"  class="form-control input-md" value="<%= @article.title %>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="image_url">Image URL</label>
+    <div class="col-md-4">
+    <input id="image_url" name="img_url" type="text" placeholder="http://example.com" class="form-control input-md" value="<%= @article.img_url %>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textbody">Description</label>
+    <div class="col-md-4">
+      <textarea class="form-control" id="textbody" name="body" placeholder="Write your article here!" rows="5" ><%= @article.body %></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="radios">Contact</label>
+    <div class="col-md-4">
+    <div class="radio">
+      <label for="radios-0">
+        <input type="radio" name="con" id="radios-0" value="1" checked="checked" >
+        Email
+      </label>
+    </div>
+    <div class="radio">
+      <label for="radios-1">
+        <input type="radio" name="con" id="radios-1" value="2">
+        Phone
+      </label>
+    </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="contact">Contact Info</label>
+    <div class="col-md-4">
+    <input id="contact" name="contact" type="text" placeholder="phone/email" class="form-control input-md" value="<%= @article.contact %>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-4">
+      <input type="submit" class="btn btn-primary" name="make article">
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+
+  <ul class="err">
+  <% @article.errors.full_messages.each do |err| %>
+    <li><%= err %></li>
+  <% end %>
+  </ul>
+
+  <form method="post" action="/articles/<%= @article.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-danger" value="Delete Article">
+  </form>
+
+</div>

@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 bhoechie-tab-container">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+        <div class="list-group">
+          <a href="#" class="list-group-item active text-center">
+            <h4 class="glyphicon glyphicon-tree-deciduous"></h4><br/>Community
+          </a>
+          <a href="#" class="list-group-item text-center">
+            <h4 class="glyphicon glyphicon-piggy-bank"></h4><br/>Jobs
+          </a>
+          <a href="#" class="list-group-item text-center">
+            <h4 class="glyphicon glyphicon-home"></h4><br/>Housing
+          </a>
+          <a href="#" class="list-group-item text-center">
+            <h4 class="glyphicon glyphicon-bed"></h4><br/>Personal
+          </a>
+          <a href="#" class="list-group-item text-center">
+            <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Free/For Sale
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+
+        <div class="bhoechie-tab-content active">
+          <center>
+            <% @sample1 = Article.where(category_id: 5).last %>
+            <a href="/articles/<%= @sample1.id %>">
+              <h3><%= @sample1.title %></h3>
+              <p><%= @sample1.body %></p>
+            </a>
+          </center>
+          <a href="/categories/community" class="see-all btn btn-default">See All</a>
+        </div>
+
+        <div class="bhoechie-tab-content">
+          <center>
+            <% @sample2 = Article.where(category_id: 4).last %>
+            <a href="/articles/<%= @sample2.id %>">
+              <h3><%= @sample2.title %></h3>
+              <p><%= @sample2.body %></p>
+            </a>
+          </center>
+          <a href="/categories/jobs" class="see-all btn btn-default">See All</a>
+        </div>
+
+        <div class="bhoechie-tab-content">
+          <center>
+            <% @sample3 = Article.where(category_id: 3).last %>
+            <a href="/articles/<%= @sample3.id %>">
+              <h3><%= @sample3.title %></h3>
+              <p><%= @sample3.body %></p>
+            </a>
+          </center>
+          <a href="/categories/housing" class="see-all btn btn-default">See All</a>
+        </div>
+
+        <div class="bhoechie-tab-content">
+          <center>
+            <% @sample4 = Article.where(category_id: 2).last %>
+            <a href="/articles/<%= @sample4.id %>">
+              <h3><%= @sample4.title %></h3>
+              <p><%= @sample4.body %></p>
+            </a>
+          </center>
+          <a href="/categories/personal" class="see-all btn btn-default">See All</a>
+        </div>
+
+        <div class="bhoechie-tab-content">
+          <center>
+            <% @sample5 = Article.where(category_id: 1).last %>
+            <a href="/articles/<%= @sample5.id %>">
+              <h3><%= @sample5.title %></h3>
+              <p><%= @sample5.body %></p>
+            </a>
+          </center>
+          <a href="/categories/free_and_for_sale" class="see-all btn btn-default">See All</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
