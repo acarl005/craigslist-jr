@@ -1,9 +1,41 @@
 get '/' do
-  erb :welcome
+
+  erb(:welcome)
+end
+
+get '/new' do
+  @article = Article.new
+  erb(:"articles/new")
+end
+
+post '/articles' do
+  @new_art = Article.new(
+    title: params[:title],
+    img_url: params[:img_url],
+    img_url: params[:img_url],
+    body: params[:body],
+    contact: params[:contact],
+    category_id: params[:category],
+  )
+  if @new_art.save
+    redirect(:"/articles/received/#{params[:category]}")
+  else
+    erb(:"articles/new")
+  end
+end
+
+get '/articles/received/:id' do
+  @category = Category.find(params[:id]).name
+  erb(:"articles/received")
+end
+
+get '/articles/:id' do
+  @article = Article.find(params[:id])
+  erb(:"articles/display")
 end
 
 get '/categories/:name' do
-  category = Category.where(name: params[:name] ).first
+  category = Category.where(name: params[:name]).first
   if category
     @articles = Article.where(category_id: category.id)
     erb(:"articles/splash")

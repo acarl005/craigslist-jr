@@ -1,0 +1,75 @@
+<div class="container">
+  <form class="form-horizontal" action="/articles" method="post">
+  <fieldset>
+
+  <legend>New Article</legend>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="title">Title</label>
+    <div class="col-md-4">
+    <input id="title" name="title" type="text"  class="form-control input-md">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="image_url">Image URL</label>
+    <div class="col-md-4">
+    <input id="image_url" name="img_url" type="text" placeholder="http://example.com" class="form-control input-md">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textbody">Description</label>
+    <div class="col-md-4">
+      <textarea class="form-control" id="textbody" name="body" placeholder="Write your article here!" rows="5"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="radios">Contact</label>
+    <div class="col-md-4">
+    <div class="radio">
+      <label for="radios-0">
+        <input type="radio" name="con" id="radios-0" value="1" checked="checked">
+        Email
+      </label>
+    </div>
+    <div class="radio">
+      <label for="radios-1">
+        <input type="radio" name="con" id="radios-1" value="2">
+        Phone
+      </label>
+    </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="contact">Contact Info</label>
+    <div class="col-md-4">
+    <input id="contact" name="contact" type="text" placeholder="phone/email" class="form-control input-md">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="selectbasic">Category</label>
+    <div class="col-md-4">
+      <select id="selectbasic" name="category" class="form-control">
+        <option value="1">Free/For Sale</option>
+        <option value="2">Personal</option>
+        <option value="3">Housing</option>
+        <option value="4">Jobs</option>
+        <option value="5">Community</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-4">
+      <input type="submit" class="btn btn-primary" name="make article">
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+
+</div>
